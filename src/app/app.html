@@ -1,1 +1,33 @@
-<h1>bienvenidos a tecnologias de internet </h1>
+<main style="font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+  <h1>{{ nombreTienda }}</h1>
+  <p><strong>Sucursal N°:</strong> {{ numeroSucursal }} | <strong>Encargado:</strong> {{ encargado }}</p>
+
+  @if (tiendaAbierta) {
+    <p style="color: rgb(0, 128, 47); font-weight: bold;">Tienda abierta</p>
+  } @else {
+    <p style="color: rgb(38, 0, 255); font-weight: bold;">Tienda cerrada</p>
+  }
+
+  <hr>
+
+  <h2>Categorías</h2>
+  <ul>
+    @for (categoria of categorias; track categoria) {
+      <li>{{ categoria }}</li>
+    }
+  </ul>
+
+  <hr>
+
+  <h2>Producto Destacado</h2>
+  <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px;">
+    <p><strong>Producto:</strong> {{ producto.nombre }}</p>
+    <p><strong>Precio:</strong> Bs. {{ producto.precio }}</p>
+
+    @if (producto.disponible) {
+      <p style="color: green; font-weight: bold;">Producto disponible</p>
+    } @else {
+      <p style="color: rgb(47, 0, 255); font-weight: bold;">Producto agotado</p>
+    }
+  </div>
+</main>
